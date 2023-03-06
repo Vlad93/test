@@ -1,0 +1,36 @@
+.page-title {
+	position: absolute;
+	left: calc(149px - 1.3em);
+	bottom: 21px;
+	margin: 0;
+	@include font(PT Sans, 400, sans-serif);
+	font-size: 49px;	
+	max-height: 90%;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	writing-mode: vertical-rl;
+	transform: scale(-1);
+	line-height: 1.3em;
+	color: $white;	
+	@include _576 {
+		left: calc(157px - 1.3em);
+	}
+}
+
+.section-title {
+	margin: 0;
+	margin-bottom: 0px;  
+  display: inline-block;	
+  @include font(Work Sans, 600, sans-serif);
+  font-size: 18px;
+  line-height: 1em;
+	width: 100%;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	color: $black-light;
+  @include _576 {
+    font-size: 22px;
+  }
+}

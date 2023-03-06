@@ -1,0 +1,10 @@
+# Gitignore
+
+#ignore node modules
+node_modules
+
+#ignore develop catalog
+dev
+
+#ignore dist catalog
+dist

@@ -1,0 +1,35 @@
+.btn {
+  display: inline-block;
+  padding: 7px 23px;
+  @include font(PT Sans, 400, sans-serif);
+  font-size: 14px;
+  color: $white;
+  background-color: $primary;
+  border: 2px solid transparent;  
+  transition: background-color .3s ease, border-color .3s ease;	
+  &:active {
+    background-color: $primary;
+    border-color: transparent;
+  }  
+  @include _767 {
+    &:focus-visible {
+      border-color: $primary;
+      background-color: $white;
+			color: $primary;
+    }
+    &:hover {
+      border-color: $primary;
+      background-color: $white;
+			color: $primary;
+    }
+    &:active {
+			background-color: $primary;
+			border-color: transparent;
+			color: $white;
+    }
+  }
+}
+
+.btn-error-submit {
+	animation: cycle .8s ease-in-out;
+}

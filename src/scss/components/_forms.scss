@@ -1,0 +1,219 @@
+.input, .textarea {
+  padding: 0 11px 6px 0;
+  width: 100%;
+  @include font(Work Sans, 400, sans-serif);
+  font-size: 12px;
+  line-height: 1em;
+  color: $black-light;  
+  // background-color: $white;
+  border: none;
+	outline: none;
+	border-bottom: 0.7px solid $grey_light;
+  transition: border-bottom-color .3s ease;  
+	@include _576 {
+		font-size: 14px;
+	} 
+  &:hover {
+    border-bottom-color: $grey;
+  }
+  &:focus {
+    border-bottom-color: $grey;
+  }  
+  &.is-invalid {
+    border-bottom-color: $danger;
+		color: $danger;
+  } 
+	&.is-success {
+		background: url('../img/arrow-ok.svg') no-repeat right center / 11px 8px, $white;
+	}
+}
+
+.label {
+	display: block;
+	margin-bottom: 5px;
+	@include font(Work Sans, 400, sans-serif);
+  font-size: 12px;
+  line-height: 14px;
+  color: $grey;  
+}
+
+.input-wrap {
+	position: relative;
+	margin-bottom: 16.5px; 
+  width: 100%;
+}
+
+.input-error {
+  position: absolute;
+ 	top: calc(100% + 2px);
+  left: 0;
+  font-size: 12px;
+  color: $danger;
+}
+
+.dropdown-icon-wrap {
+	position: absolute;
+	right: 0;
+	bottom: 38%;			
+	& .dropdown-icon {
+		width: 8px;
+		height: 4px;
+		transition: fill .3s ease, transform .3s ease;
+	}	
+}
+
+.choices__list--single {	
+	padding: 0;
+	padding-right: 5px;
+	& .choices__item {
+		color: $black-light;
+		transition: color .3s ease;
+	}
+}
+.choices[data-type*=select-one] {
+	overflow: inherit;
+	margin: 0;
+	z-index: 3;
+	transition: background-color .3s ease;
+	&.is-open {
+		z-index: 4;
+	}
+	& .choices__inner {
+		padding: 0 2px 5px 0;
+		min-height: auto;		
+		background-color: transparent;
+		border: none;
+		border-bottom: 0.7px solid $grey_light;
+		transition: border-bottom-color .3s ease;
+	}
+	&::after {
+	 content: '';
+	 right: auto;
+	 top: 0;
+	 left: 100%;
+	 margin: 0;
+	 width: 11px;
+	 height: 100%;
+	 z-index: 3;
+	 border: none;
+	 background-color: transparent;
+	 pointer-events: all;
+	}
+	&:focus-visible {
+		outline: none;
+	}
+	&:active .choices__list--single .choices__item {
+		color: $grey_light;
+	}
+	&.is-open + .dropdown-icon-wrap .dropdown-icon {
+		transform: rotate(180deg);
+	}
+	&:active + .dropdown-icon-wrap .dropdown-icon {
+		fill: $grey_light;
+	}
+	@include _767 {			
+		&:focus-visible + .dropdown-icon-wrap .dropdown-icon {
+			fill: $grey;
+		}		
+		&:focus-visible .choices__inner {
+			border-bottom-color: $grey;
+		}
+		&:hover .choices__inner {
+			border-bottom-color: $grey;
+		}
+		&:hover + .dropdown-icon-wrap .dropdown-icon {
+			fill: $grey;
+		}		
+		&:active + .dropdown-icon-wrap .dropdown-icon {
+			fill: $black;
+		}
+	}
+}
+.choices__list--dropdown {
+	margin: 0;
+	top: 100%;
+	left: 0;
+	max-width: 100%;
+	// min-width: 90px;
+	z-index: 3;
+	border: none;
+	border-bottom: 0.7px solid $grey_light;	
+	border-radius: 0;
+	& .choices__list {
+		padding: 5px 0;
+		max-height: 60vh;
+		& .choices__item {
+			padding: 6px 2px 6px 0;
+			font-size: 14px;
+			transition: background-color .3s ease;
+			&.is-selected {
+				display: none;
+			}
+			&.is-highlighted {
+				background-color: $grey_light;
+			}
+		}
+	}	
+}
+
+.radios-wrap {
+	display: flex;
+	flex-direction: column;
+	@include _576 {
+		align-items: center;
+		flex-direction: row;
+	}	
+}
+
+.radio-wrap {
+	&:not(:last-of-type) {
+		margin-bottom: 8px;		
+	}
+	@include _576 {
+		&:not(:last-of-type) {
+			margin-bottom: 0;
+			margin-right: 19px;
+		}
+	}	
+}
+
+.radio-label {	
+	position: relative;	
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 14px;	
+	color: $black-light;
+	transition: color .3s ease;
+		&::before {
+			content: '';		
+			display: block;
+			margin-left: 2px;
+			margin-right: 9px;
+			width: 7px;
+			height: 7px;
+			border: none;
+			outline: 0.7px solid $primary;
+			outline-offset: 2.3px;
+			border-radius: 50%;
+			transition: background-color .3s ease;		
+		}
+		.radio-input:checked + &::before {
+			background-color: $primary;
+		} 
+	@include _767 {
+		.radio-input:focus-visible + & {
+			color: grey;
+		}
+		&:hover {
+			color: grey;
+		}		
+	}
+}
+
+.radio-input {
+	position: absolute;
+	left: 0;
+	visibility: hidden;
+	opacity: 0;
+}

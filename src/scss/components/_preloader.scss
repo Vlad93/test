@@ -1,0 +1,33 @@
+.preloader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 50px;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9;
+  &.active {
+    display: block;
+  }
+    &::before, &::after {
+    content: '';
+    border: 2px solid $primary;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0px;
+    }
+    &::before {
+      transform: scale(1, 1);
+      opacity: 1;
+      animation: spWaveBe 0.6s infinite linear;
+    }
+    &::after {
+      transform: scale(0, 0);
+      opacity: 0;
+      animation: spWaveAf 0.6s infinite linear;
+    }
+}
