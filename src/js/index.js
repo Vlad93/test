@@ -146,6 +146,12 @@ const dateDropdown = populatedropdown('date', 'month', 'year');
 		duration: .6,
 		ease: "power3.out"
 	}, ">");  
+	tlLoad.eventCallback("onComplete", () => {
+		document.querySelectorAll('.signup-form__input-wrap').forEach((item) => {
+			item.style = "";
+		});
+		document.querySelector('.signup-form__complete-wrap').style = "";
+	});
 
 	
 
@@ -271,7 +277,7 @@ const dateDropdown = populatedropdown('date', 'month', 'year');
 		.then(() => {
 			signUpForm.reset();
 			preloader.classList.add('active');
-			document.querySelector('.signup-form__login').style.zIndex = "8";
+			document.querySelector('.signup-form__login').style.zIndex = "9";
 			setTimeout(() => {
 				preloader.classList.remove('active');				
 				modalWindowThanks.classList.add('show');

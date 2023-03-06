@@ -24,7 +24,7 @@
 		color: $danger;
   } 
 	&.is-success {
-		background: url('../img/arrow-ok.svg') no-repeat right center / 11px 8px, $white;
+		background: url('../img/arrow-ok.svg') no-repeat right center / 11px 8px, transparent;
 	}
 }
 
@@ -41,6 +41,9 @@
 	position: relative;
 	margin-bottom: 16.5px; 
   width: 100%;
+	&-select {
+		z-index: 3;
+	}
 }
 
 .input-error {
